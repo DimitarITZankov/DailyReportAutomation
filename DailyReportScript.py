@@ -9,3 +9,8 @@ try:
 except FileNotFoundError as e:
     logging.error("Unable to open the csv file",e)
     print("The file doesnt exist")
+    quit()
+logging.debug("Fetching the data for daily report")
+calculate_kg_per_day = df.groupby("Date")["Kg"].sum()
+calculate_price_per_day = df.groupby("Date")["Price"].sum()
+all_kg = df["Kg"].sum()
