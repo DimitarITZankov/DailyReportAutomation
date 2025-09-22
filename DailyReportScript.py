@@ -3,7 +3,16 @@ import csv
 import pandas as pd
 import logging
 from datetime import datetime
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
+data_folder = "../data"
+reports_folder = "../reports"
+logs_folder = "../logs"
+
+os.makedirs(logs_folder, exist_ok=True)
+logging.basicConfig(
+    filename=os.path.join(logs_folder, "daily_report.log"),
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.INFO
 try:
     df = pd.read_csv("daily_sales.csv")
     logging.debug("Opened the  csv file successfully")
