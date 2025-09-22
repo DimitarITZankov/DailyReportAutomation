@@ -20,10 +20,10 @@ calculate_kg_per_day.to_csv(f"DailyReport_{today}.csv")
 logging.info("Daily report has been successfully generated")
 logging.info(f"Searching for file...")
 try:
-    df = pd.read_csv(f"StorageLeft")
+    df = pd.read_csv(f"StorageLeft.csv")
     logging.debug("Opened the csv file successfully")
 except FileNotFoundError as e:
-    logging.error("Unable to open the csv file",e)
+    logging.error("Unable to open the csv file: %s",e)
     print("The file doesnt exist")
 df["Main_Storage"] = df["Main_Storage"] - all_kg
 df.to_csv(f"StorageLeft.csv",index=False)
