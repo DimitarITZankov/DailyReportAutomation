@@ -15,12 +15,12 @@ logging.basicConfig(
     level=logging.INFO)
 try:
     sales_df = pd.read_csv(os.path.join(data_folder, "daily_sales.csv"))
-    logging.debug("Opened the  csv file successfully")
+    logging.info("Opened the  csv file successfully")
 except FileNotFoundError as e:
     logging.error("Unable to open the csv file: %s",e)
     print("The file doesnt exist")
     quit()
-logging.debug("Fetching the data for daily report")
+logging.info("Fetching the data for daily report")
 calculate_kg_per_day = sales_df.groupby("Date")["Kg"].sum()
 calculate_price_per_day = sales_df.groupby("Date")["Price"].sum()
 all_kg = sales_df["Kg"].sum()
@@ -30,7 +30,7 @@ logging.info("Daily report has been successfully generated")
 logging.info(f"Searching for file...")
 try:
     storage_df = pd.read_csv(os.path.join(data_folder, "StorageLeft.csv"))
-    logging.debug("Opened the csv file successfully")
+    logging.info("Opened the csv file successfully")
 except FileNotFoundError as e:
     logging.error("Unable to open the csv file: %s",e)
     print("The file doesnt exist")
