@@ -21,11 +21,13 @@ except FileNotFoundError as e:
     print("The file doesnt exist")
     quit()
 logging.info("Fetching the data for daily report")
-calculate_kg_per_day = sales_df.groupby("Date")["Kg"].sum()
-calculate_price_per_day = sales_df.groupby("Date")["Price"].sum()
+daily_report = sales_df.groupby("Date").agg({
+    "Kg": "sum",
+    "Price": "sum"
+})
 all_kg = sales_df["Kg"].sum()
 today = datetime.today().strftime("%Y-%m-%d")
-calculate_kg_per_day.to_csv(os.path.join(reports_folder, f"DailyReport_{today}.csv"), index=False)
+daily_report.to_csv(os.path.join(reports_folder, f"DailyReport_{today}.csv"), index=False)
 logging.info("Daily report has been successfully generated")
 logging.info(f"Searching for file...")
 try:
