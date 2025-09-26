@@ -24,7 +24,7 @@ logging.info("Fetching the data for daily report")
 daily_report = sales_df.groupby("Date").agg({
     "Kg": "sum",
     "Price": "sum"
-})
+}).reset_index()
 all_kg = sales_df["Kg"].sum()
 today = datetime.today().strftime("%Y-%m-%d")
 daily_report.to_csv(os.path.join(reports_folder, f"DailyReport_{today}.csv"), index=False)
