@@ -1,0 +1,3 @@
+# Python version
+python>=3.10
+pandas>=2.0.0
