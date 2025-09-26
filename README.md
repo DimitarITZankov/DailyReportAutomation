@@ -9,7 +9,7 @@ The script works by taking the daily sales, summing all the amount sold in the d
 This is my first project in GitHub and also first time using it :).
 How this script is working ?
 1. You write your sales in the 'daily_sales.csv'
-2. Then you start the script and it automatically generates :
+2. Then you start the script and it automatically :
 Generates logs in the .log file
 Subtract the sold amount from the main storage file
 Makes a 'daily_report.csv' file with Columns: Date,Amount,Price
