@@ -21,8 +21,6 @@ except FileNotFoundError as e:
     print("The file doesnt exist")
     quit()
 logging.info("Fetching the data for daily report")
-calculate_kg_per_day = sales_df.groupby("Date")["Kg"].sum()
-calculate_price_per_day = sales_df.groupby("Date")["Price"].sum()
 daily_report = sales_df.groupby("Date").agg({
     "Kg": "sum",
     "Price": "sum"
