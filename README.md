@@ -5,11 +5,13 @@ Libraries used in the project:
 -pandas - clearing the data
 -logging - informative messages about the script as logs
 -datetime - using the todays date to create daily report file with the date in the name
-The script works by taking the daily sales, summing all the amount sold in the day and price, then saving them into variable.Next we open the file with the storage left and subtract from it.
 This is my first project in GitHub and also first time using it :).
-How this script is working ?
-1. You write your sales in the 'daily_sales.csv'
-2. Then you start the script and it automatically :
-Generates logs in the .log file
-Subtract the sold amount from the main storage file
-Makes a 'daily_report.csv' file with Columns: Date,Amount,Price
+How to use the script?:
+1. Prepare your sales in a file namedd 'daily_sales.csv'. The file should include columns like Date,Kg(amount sold),Price
+2. In the 'StorageLeft.csv' write the current stock available in your main storage
+3. When you run the script , it automatically generates a 'daily_report.log' file which tracks all actions of the script
+4. The script subtracts the sold amount from the main storage and updates 'StorageLeft.csv'
+5. New CSV daily report file named 'DailyReport_<YYYY-MM-DD>.csv' created and saved in the folder reports:
+  Date - The date of sales
+  Kg - Total amount sold that day
+  Price - Total revenue for the day
