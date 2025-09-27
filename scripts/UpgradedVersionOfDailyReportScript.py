@@ -29,3 +29,10 @@ def generate_daily_reports(df_sales):
     }).reset_index()
     total_kg = df_sales["Kg"].sum()
     return report, total_kg
+
+def save_csv(df,folder,filename):
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, filename)
+    df.to_csv(path, index=False)
+    logging.info(f"Saved the csv file successfully {path}")
+    return path
