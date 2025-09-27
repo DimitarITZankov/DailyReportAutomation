@@ -22,3 +22,10 @@ def open_csv(csv_file):
         print("File not found")
         quit()
 
+def generate_daily_reports(df_sales):
+    report = df_sales.groupby(["Date"]).agg({
+        "Kg" : "sum",
+        "Price" : "sum"
+    }).reset_index()
+    total_kg = df_sales["Kg"].sum()
+    return report, total_kg
