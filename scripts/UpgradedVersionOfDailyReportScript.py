@@ -36,3 +36,7 @@ def save_csv(df,folder,filename):
     df.to_csv(path, index=False)
     logging.info(f"Saved the csv file successfully {path}")
     return path
+
+def upgrade_storage(df_storage,total_kg):
+    df_storage["Main_Storage"] = df_storage["Main_Storage"] - total_kg
+    return df_storage
