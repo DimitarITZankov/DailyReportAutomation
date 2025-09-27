@@ -20,7 +20,6 @@ def open_csv(csv_file):
     except FileNotFoundError as e:
         logging.error(e)
         print("File not found")
-        quit()
 
 def generate_daily_reports(df_sales):
     report = df_sales.groupby(["Date"]).agg({
