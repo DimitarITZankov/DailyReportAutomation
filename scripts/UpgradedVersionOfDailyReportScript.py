@@ -48,7 +48,7 @@ def main():
 
     daily_report, total_kg = generate_daily_reports(sales_df)
     today = datetime.today().strftime("%Y-%m-%d")
-    save_csv(daily_report,reports_folder,f"daily_report.{today}")
+    save_csv(daily_report,reports_folder,f"daily_report.{today}.csv")
     logging.info("Successfully generated daily report")
 
     storage_file = os.path.join(data_folder, "StorageLeft.csv")
