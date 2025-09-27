@@ -15,3 +15,5 @@ How to use the script?:
   Date - The date of sales
   Kg - Total amount sold that day
   Price - Total revenue for the day
+In the 'script' folder there are 2 scripts :
+The first one that i made and the second one with functions so i can test them
