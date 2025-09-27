@@ -37,7 +37,7 @@ def save_csv(df,folder,filename):
     logging.info(f"Saved the csv file successfully {path}")
     return path
 
-def upgrade_storage(df_storage,total_kg):
+def update_storage(df_storage,total_kg):
     df_storage["Main_Storage"] = df_storage["Main_Storage"] - total_kg
     return df_storage
 
@@ -53,7 +53,7 @@ def main():
 
     storage_file = os.path.join(data_folder, "StorageLeft.csv")
     df_storage = open_csv(storage_file)
-    df_storage = upgrade_storage(df_storage,total_kg)
+    df_storage = update_storage(df_storage,total_kg)
     save_csv(df_storage,data_folder,f"StorageLeft.csv")
     logging.info("StorageLeft has been successfully refreshed with the new data")
 
